@@ -37,17 +37,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`}>
-        <header className="bg-blue-600 text-white py-4">
+    <html lang="en" className="dark:bg-gray-900">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 dark:bg-gray-900`}>
+        <header className="bg-blue-600 dark:bg-blue-800 text-white py-4">
           <div className="container mx-auto px-4 flex items-center">
             <img src="/icon_qrcode.svg" alt="QR Code Tool Logo" className="h-8 w-8 mr-2" />
             <h1 className="text-2xl font-bold">QR Code Tool</h1>
           </div>
         </header>
         <main>{children}</main>
-        <footer className="bg-gray-200 py-4 mt-8">
-          <div className="container mx-auto px-4 text-center text-gray-600">
+        <footer className="bg-gray-200 dark:bg-gray-800 py-4 mt-8">
+          <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-300">
             © {new Date().getFullYear()} Yeepee.fr. All rights reserved.
           </div>
         </footer>

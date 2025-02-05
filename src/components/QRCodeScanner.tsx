@@ -84,47 +84,50 @@ function QRCodeScanner() {
     }
   };
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4">QR Code Scanner</h1>
-      <div className="w-full max-w-md">
-        <input
-          type="file"
-          onChange={handleImageUpload}
-          className="mb-4 p-2 w-full border border-gray-300 rounded"
-        />
-        <button
-          onClick={isCapturing ? stopCapture : startCapture}
-          className="mb-4 p-2 w-full bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          {isCapturing ? 'Stop Camera' : 'Start Camera'}
-        </button>
-        {isCapturing && (
-          <button
-            onClick={captureFrame}
-            className="mb-4 p-2 w-full bg-green-500 text-white rounded hover:bg-green-600"
-          >
-            Capture and Scan
-          </button>
-        )}
-        <div className="relative">
-          <video
-            ref={videoRef}
-            className={`w-full ${isCapturing ? 'block' : 'hidden'}`}
-            autoPlay
-            playsInline
-          />
-          <canvas ref={canvasRef} className="hidden" />
-        </div>
-        {result && (
-          <div className="mt-4 p-4 bg-white rounded shadow">
-            <h2 className="text-xl font-semibold mb-2">Result:</h2>
-            <p>{result}</p>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+ return (
+     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+       <h1 className="text-3xl font-bold mb-4 dark:text-white">QR Code Scanner</h1>
+       <div className="w-full max-w-md">
+         <input
+           type="file"
+           onChange={handleImageUpload}
+           className="mb-4 p-2 w-full border border-gray-300 dark:border-gray-600 rounded
+                      text-gray-900 dark:text-gray-100 dark:bg-gray-700"
+         />
+         <button
+           onClick={isCapturing ? stopCapture : startCapture}
+           className="mb-4 p-2 w-full bg-blue-500 dark:bg-blue-600 hover:bg-blue-600
+                      dark:hover:bg-blue-700 text-white rounded"
+         >
+           {isCapturing ? 'Stop Camera' : 'Start Camera'}
+         </button>
+         {isCapturing && (
+           <button
+             onClick={captureFrame}
+             className="mb-4 p-2 w-full bg-green-500 dark:bg-green-600 hover:bg-green-600
+                        dark:hover:bg-green-700 text-white rounded"
+           >
+             Capture and Scan
+           </button>
+         )}
+         <div className="relative">
+           <video
+             ref={videoRef}
+             className={`w-full ${isCapturing ? 'block' : 'hidden'}`}
+             autoPlay
+             playsInline
+           />
+           <canvas ref={canvasRef} className="hidden" />
+         </div>
+         {result && (
+           <div className="mt-4 p-4 bg-white dark:bg-gray-800 rounded shadow">
+             <h2 className="text-xl font-semibold mb-2 dark:text-white">Result:</h2>
+             <p className="dark:text-gray-300">{result}</p>
+           </div>
+         )}
+       </div>
+     </div>
+   );
+ }
 
 export default QRCodeScanner;
