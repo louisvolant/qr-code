@@ -1,25 +1,31 @@
+// src/components/QRCodeGenerator.tsx
+
 'use client';
 
 import React, { useState } from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 
 const QRCodeGenerator = () => {
+  // State variables
   const [text, setText] = useState('');
-  const [qrCode, setQrCode] = useState(null);
-  const [isGenerating, setIsGenerating] = useState(false); // État pour l'animation
-  const [generated, setGenerated] = useState(false); // État pour le tick vert
+  const [qrCode, setQrCode] = useState<string | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false); // State for animation
+  const [generated, setGenerated] = useState(false); // State for green tick
 
+  // Function to generate QR code
   const generateQRCode = () => {
-    setIsGenerating(true); // Démarre l'animation
-    setGenerated(false); // Réinitialise l'état du tick
+    setIsGenerating(true); // Start animation
+    setGenerated(false); // Reset tick state
 
+    // Simulate generation delay
     setTimeout(() => {
       setQrCode(text || " ");
-      setIsGenerating(false); // Arrête l'animation
-      setGenerated(true); // Affiche le tick vert
-    }, 500); // Délai de 500ms pour simuler la génération
+      setIsGenerating(false); // Stop animation
+      setGenerated(true); // Show green tick
+    }, 500); // 500ms delay to simulate generation
   };
 
+  // Function to reset form
   const reset = () => {
     setText('');
     setQrCode(null);
@@ -38,11 +44,11 @@ const QRCodeGenerator = () => {
           rows={3}
         />
       </div>
-      <div className="flex items-center space-x-4"> {/* Conteneur pour les boutons */}
+      <div className="flex items-center space-x-4"> {/* Button container */}
         <button
-          className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 relative ${isGenerating ? 'animate-pulse' : ''}`} // Animation sur le bouton
+          className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 relative ${isGenerating ? 'animate-pulse' : ''}`} // Button animation
           onClick={generateQRCode}
-          disabled={isGenerating} // Désactive le bouton pendant la génération
+          disabled={isGenerating} // Disable button during generation
         >
           {isGenerating && (
             <span className="animate-spin absolute left-2 top-1/2 -translate-y-1/2">
