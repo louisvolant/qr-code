@@ -86,7 +86,7 @@ const QRCodeGenerator = () => {
             Reset
           </button>
         </div>
-        {qrCode && (
+        {qrCode && generated && (
           <div className="mt-4 p-4 bg-white dark:bg-gray-700 rounded">
             <QRCodeCanvas
               value={qrCode}

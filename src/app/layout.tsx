@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from 'next/image';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,7 +42,14 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 dark:bg-gray-900`}>
         <header className="bg-blue-600 dark:bg-blue-800 text-white py-4">
           <div className="container mx-auto px-4 flex items-center">
-            <img src="/icon_qrcode.svg" alt="QR Code Tool Logo" className="h-8 w-8 mr-2" />
+              <Image
+                src="/icon_qrcode.svg"
+                alt="QR Code Tool Logo"
+                width={32}
+                height={32}
+                priority
+                className="h-8 w-8 mr-2"
+              />
             <h1 className="text-2xl font-bold">QR Code Tool</h1>
           </div>
         </header>
