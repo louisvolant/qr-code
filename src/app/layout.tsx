@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "QR Code Tool - Generate and Scan QR Codes",
     description: "Create and scan QR codes with ease using our all-in-one tool.",
     type: "website",
-    url: "https://qr-code.louisvolant.com",
+    url: "https://qr-code-tool.louisvolant.com",
     images: ['/icon_qrcode.png'],
   },
   icons: [
