@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Sitemap: https://qr-code-tool.louisvolant.com/sitemap.xml
+
